@@ -7,6 +7,28 @@
 
 ### Types of Machine Learning
 
+```mermaid
+graph TD
+    ML[Machine Learning] --> SL[Supervised Learning]
+    ML --> UL[Unsupervised Learning]
+    ML --> SSL[Semi-Supervised Learning]
+    ML --> RL[Reinforcement Learning]
+    
+    SL --> REG[Regression]
+    SL --> CLS[Classification]
+    
+    UL --> CLU[Clustering]
+    UL --> DR[Dimensionality Reduction]
+    UL --> AD[Anomaly Detection]
+    UL --> ARL[Association Rule Learning]
+    
+    style ML fill:#e1f5ff
+    style SL fill:#e8f5e9
+    style UL fill:#fff3e0
+    style SSL fill:#f3e5f5
+    style RL fill:#fce4ec
+```
+
 #### 1. Supervised Learning
 Learns from `labeled data`, where both inputs and corresponding outputs are known.
 
@@ -30,16 +52,40 @@ Goal: maximize cumulative reward over time through trial and error.
 
 ### Learning Strategies
 
-### Batch (Offline) Machine Learning
+#### Batch (Offline) Machine Learning
 - Trains on the `entire dataset at once`, then deployed for predictions.  
 - Requires `periodic retraining` to stay up to date with new data.  
 - `Drawbacks:` high hardware usage, downtime during retraining, limited adaptability to real-time changes.
 
-### Online (Incremental) Machine Learning
+#### Online (Incremental) Machine Learning
 - Starts with an initial model and `continuously learns` from new incoming data.  
 - `Advantages:` adapts to `concept drift`, cost-effective, enables real-time updates and predictions.
 
 ### Learning Methods
+
+```mermaid
+graph TD
+    LM[Learning Methods] --> IBL[Instance-Based Learning]
+    LM --> MBL[Model-Based Learning]
+    LM --> OCL[Out-of-Core Learning]
+    
+    IBL --> IBL1[No Explicit Model]
+    IBL --> IBL2[Uses Stored Instances]
+    IBL --> IBL3[Example: k-NN]
+    
+    MBL --> MBL1[Builds Mathematical Model]
+    MBL --> MBL2[Generalizes from Data]
+    MBL --> MBL3[Examples: Linear Regression,<br/>Decision Trees, Neural Networks]
+    
+    OCL --> OCL1[Processes Mini-Batches]
+    OCL --> OCL2[Handles Large Datasets]
+    OCL --> OCL3[Incremental Processing]
+    
+    style LM fill:#e1f5ff
+    style IBL fill:#e8f5e9
+    style MBL fill:#fff3e0
+    style OCL fill:#f3e5f5
+```
 
 - `Instance-Based Learning:`  
   Compares new data points with existing examples and makes predictions based on similarity (e.g., *k-Nearest Neighbors*).  
@@ -53,9 +99,30 @@ Goal: maximize cumulative reward over time through trial and error.
   Used when datasets are too large to fit in memory; data is processed incrementally in `mini-batches`.  
   - `Challenges:` requires careful implementation to avoid data inconsistency and maintain training stability.
 
-### Key Concept
+#### Key Concept
 
 `Learning Rate:`  
 Determines how quickly a model updates its parameters during training.  
 - Too high → may overshoot the optimal solution.  
 - Too low → may converge slowly or get stuck in local minima.
+
+```mermaid
+graph LR
+  LR[Learning Rate] --> HIGH[Too High]
+  LR --> OPT[Optimal]
+  LR --> LOW[Too Low]
+  
+  HIGH --> HIGH1[Overshoots Solution]
+  HIGH --> HIGH2[Unstable Training]
+  
+  OPT --> OPT1[Converges Efficiently]
+  OPT --> OPT2[Finds Optimal Solution]
+  
+  LOW --> LOW1[Slow Convergence]
+  LOW --> LOW2[Stuck in Local Minima]
+
+  style LR fill:#e1f5ff
+  style HIGH fill:#e8f5e9
+  style OPT fill:#fff3e0
+  style LOW fill:#f3e5f5
+```
